@@ -1,0 +1,53 @@
+{% extends 'users/base.html' %}
+
+{% block title %}
+    - About
+{% endblock title %}
+
+{% load static %}
+{% block body %}
+
+<div class="text-center">
+<h1 >Django Blog</h1>
+
+{% if request.user.is_authenticated %}
+<p>Wellcome {{ request.user | title }}!</p>
+{% else %}
+<p>Wellcome Guest!</p>
+{% endif %}
+</div>
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row d-flex justify-content-center m-3">
+              <div class="col-md-4 d-flex justify-content-center">
+                <img src="{% static 'users/images/nb-profile.jpg' %}" class="img-fluid rounded-start" alt="nurbaki photo">
+              </div>
+              <div class="col-md-8 m-2 p-2">
+                <div class="card-body">
+                  <h5 class="card-title">My name is Nurbaki,</h5>
+                  <p class="card-text text-justify">I developed this blog application to reinforce my Python-Django knowledge. <br>
+                  I designed it as the final project of the Backend-Database phase.
+                  In this project, after creating the database models with Django, I used Django's own UI for the Frontend part.
+                   Therefore, I can say that it is a complete "Full Stack" application. <br>
+                  I used also Bootstrap, CSS, Javascript, SQLite in this project. <br>
+                  Thank you for visiting.
+                </p>
+                
+                <div class="m-2 d-flex justify-content-center">
+                  
+                  <a href="https://github.com/nurbaki" target="_blank">
+                  <button type="button" class="btn btn-primary mr-2" style="width: 10rem;"><i class="bi bi-github"></i> My Github</button></a>
+                  <a href="https://www.linkedin.com/in/nurbaki-bayansal/" target="_blank">
+                    <button type="button" class="btn btn-primary" style="width: 10rem;"><i class="bi bi-linkedin"></i> My Linkedin</button></a>
+               </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+
+
+
+{%endblock body %}

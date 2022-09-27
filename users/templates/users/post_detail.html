@@ -1,0 +1,49 @@
+{% extends 'users/base.html' %}
+
+{% block body %}
+
+<div class="text-center">
+  <h1 >Django Blog</h1>
+</div>
+
+<div class="container mt-4 d-flex justify-content-center">
+  <div class="row">
+    <div class="col">
+      <div class="card" style="width: 54rem;">
+        <div class="m-3 d-flex justify-content-center">
+          <img src="{{post.image_url}}" class="card-img-top" alt="post image">
+        </div>
+        
+        <div class="card-body text-center">
+          <h2 class="card-title">{{post.title}}</h2>
+        </div>
+        <div>
+          <p class="card-text text-justify p-4">{{post.content}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Publish Date : {{post.publish_date}}</li>
+          <li class="list-group-item">Last Update : {{post.last_updated}}</li>
+          <li class="list-group-item">Author : {{post.user}}</li>
+        </ul>
+        <div class="card-body d-flex justify-content-around align-items-center" style="height: 3rem;">
+          <a href="#" class="card-link"><i class="bi bi-heart"></i></a>
+          <a href="#" class="card-link"><i class="bi bi-chat-left-text"></i></a>
+          <a href="#" class="card-link"><i class="bi bi-eye"></i></a>
+        </div>
+      </div>
+
+      {% if request.user == post.user %}
+      <div class="m-3 d-flex justify-content-center">
+        <div class="mr-2"> <a href="{% url 'post_update' post.id %}"><button type="button" class="btn btn-warning" style="width: 6rem;">Edit</button></a></div>
+        <div><a href="{% url 'post_delete' post.id %}"><button type="button" class="btn btn-danger" style="width: 6rem;">Delete</button></a></div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock body %}

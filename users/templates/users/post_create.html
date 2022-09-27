@@ -1,0 +1,28 @@
+{% extends 'users/base.html' %}
+
+{% block title %}
+    - New Post
+{% endblock title %}
+
+{% block body %}
+
+<div class="m-3 d-flex justify-content-center">
+    <h1>Post Create</h1>
+  </div>
+
+
+{% load crispy_forms_tags %}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+
+        <form action="{% url 'post_create' %}" method="post">
+            {% csrf_token %} {{form|crispy}}
+            <div class="m-3 d-flex justify-content-center">
+               <button type="submit" class="btn btn-success">Add</button> 
+            </div>
+            
+        </form>
+    </div>
+</div>
+{% endblock body %}
