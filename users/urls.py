@@ -10,9 +10,6 @@ from .views import (
     PostUpdateView,
     AboutView,
     MyPostsView,
-    # ProfileCreate,
-    # ProfileUpdate,
-    # ProfileDetail, 
 )
 
 urlpatterns = [
@@ -29,9 +26,6 @@ urlpatterns = [
     path('update/<int:pk>/', PostUpdateView.as_view(), name="post_update"),
     path('delete/<int:pk>/', PostDeleteView.as_view(), name="post_delete"),
 
-    # path('profile/', ProfileDetail.as_view(), name="profile"),
-    # path('profile_add/', ProfileCreate.as_view(), name="profile_add"),
-    # path('profile_update/<int:pk>/', ProfileUpdate.as_view(), name="profile_update"),
     path('profile_update/', profileUpdate, name="profile_update"),
     path('profile/', profileDetail, name="profile"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
